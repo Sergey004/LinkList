@@ -67,6 +67,39 @@ namespace LinkList.Model
             Head = item;
             Count++;
         }
+        public void InsertAfter(T target, T data)
+        {
+            if (Head != null)
+            {
+                if (Head.Data.Equals(target))
+                {
+                    Head = Head.Next;
+                    Count--;
+                    return;
+                }
+                var current = Head.Next;
+                var previous = Head;
+
+
+                while (current != null)
+                {
+                    if (current.Data.Equals(data))
+                    {
+                        previous.Next = current.Next;
+                        Count--;
+                        return;
+                    }
+
+                    previous = current;
+                    current = current.Next;
+                }
+            }
+            else
+            {
+                SetHeadAndTail(target);
+                Add(data);
+            }
+        }
 
         public void Add(T data)
         {
@@ -111,7 +144,10 @@ namespace LinkList.Model
                     current = current.Next;
                 }
             }
-
+            else
+            {
+                SetHeadAndTail(data);
+            }
             
         }
 
