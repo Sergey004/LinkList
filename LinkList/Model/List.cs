@@ -77,7 +77,7 @@ namespace LinkList.Model
                     if (current.Data.Equals(target))
                     {
                         var item = new Item<T>(data);
-                        item.Next = Head.Next;
+                        item.Next = current.Next;
                         Head.Next = item;
                         Count++;
                         return;
