@@ -32,10 +32,9 @@ namespace LinkList.Model
 
         public LinkedList()
         {
-            Head = null;
-            Tail = null;
-            Count = 0;
+            Clear();
         }
+
 
         public LinkedList(T data)
 
@@ -50,6 +49,23 @@ namespace LinkList.Model
             Head = item;
             Tail = item;
             Count = 1;
+        }
+
+        public void Clear()
+        {
+            Head = null;
+            Tail = null;
+            Count = 0;
+        }
+        public void AppendHead(T data)
+        {
+            var item = new Item<T>(data)
+            {
+                Next = Head
+            };
+
+            Head = item;
+            Count++;
         }
 
         public void Add(T data)
@@ -96,7 +112,7 @@ namespace LinkList.Model
                 }
             }
 
-
+            
         }
 
         public IEnumerator GetEnumerator()
