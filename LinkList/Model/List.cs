@@ -78,7 +78,7 @@ namespace LinkList.Model
                     {
                         var item = new Item<T>(data);
                         item.Next = current.Next;
-                        Head.Next = item;
+                        current.Next = item;
                         Count++;
                         return;
                     }
