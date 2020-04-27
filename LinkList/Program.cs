@@ -40,6 +40,14 @@ namespace LinkList
                 Console.Write(item + " ");
             }
             Console.WriteLine();
+
+            list.InsertAfter(4, 8);
+            foreach (var item in list)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
             Console.ReadLine();
         }
     }

@@ -71,33 +71,27 @@ namespace LinkList.Model
         {
             if (Head != null)
             {
-                if (Head.Data.Equals(target))
-                {
-                    Head = Head.Next;
-                    Count--;
-                    return;
-                }
-                var current = Head.Next;
-                var previous = Head;
-
-
+                var current = Head;
                 while (current != null)
                 {
-                    if (current.Data.Equals(data))
+                    if (current.Equals(target))
                     {
-                        previous.Next = current.Next;
-                        Count--;
+                        var item = new Item<T>(data);
+                        item.Next = Head.Next;
+                        Head.Next = item;
+                        Count++;
                         return;
                     }
-
-                    previous = current;
-                    current = current.Next;
+                    else
+                    {
+                        current = current.Next;
+                    }
                 }
             }
+
             else
             {
-                SetHeadAndTail(target);
-                Add(data);
+               
             }
         }
 
