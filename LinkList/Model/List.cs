@@ -74,7 +74,7 @@ namespace LinkList.Model
                 var current = Head;
                 while (current != null)
                 {
-                    if (current.Equals(target))
+                    if (current.Data.Equals(target))
                     {
                         var item = new Item<T>(data);
                         item.Next = Head.Next;
